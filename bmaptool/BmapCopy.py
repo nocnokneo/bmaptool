@@ -869,7 +869,7 @@ class BmapAndroidSparseImageCopy(BmapCopy):
     def copy(self, sync=True, verify=True):
         # Create the queue for block batches and start the reader thread, which
         # will read the image in batches and put the results to '_batch_queue'.
-        self._batch_queue = queue.Queue(self._batch_queue_len)
+        self._batch_queue = Queue.Queue(self._batch_queue_len)
         thread.start_new_thread(self._get_data, (verify,))
 
         blocks_written = 0
